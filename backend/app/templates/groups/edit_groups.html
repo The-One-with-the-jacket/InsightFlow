@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Edit Group{% endblock %}
+
+{% block content %}
+<h2>Edit Group</h2>
+<form method="POST" action="{{ url_for('groups.edit_group', group_id=group.id) }}">
+    {{ form.hidden_tag() }}
+    <p>
+        {{ form.name.label }}<br>
+        {{ form.name(size=40) }}
+    </p>
+    <p>
+        {{ form.description.label }}<br>
+        {{ form.description(cols=40, rows=5) }}
+    </p>
+    <p>
+        {{ form.private() }}
+        {{ form.private.label }}
+    </p>
+    <p>{{ form.submit() }}</p>
+</form>
+{% endblock %}
